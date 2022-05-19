@@ -22,7 +22,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo">#coding</a>
+									<a href="./../index.html" class="logo">#coding</a>
 								</header>
 
 <section>
@@ -32,16 +32,25 @@
 
 									<span class="image main"><img src="#./../images/pic11.jpg" alt="" /></span>
 
-									<p>.</p>
+									<p>Git is a version control system which is useful to magage the projects.</p>
+									<hr class="major" />
 
+									<h2>Initial setup </h2>
+									<pre><code>
+									</br>git config --global user.name username
+									</br>git config --global user.email useremail
+									</br>git config # to check the configuration
+									
+									</code></pre>
 									<hr class="major" />
 
 									<h2>Commands absolute necessary </h2>
-									<pre><code>git init 
-									</br>git clone url
-									</br>git add filename
+									<pre><code>cd to the directory
+									</br>git init #to initiate a code from scratch
+									</br>git clone url # to clone code from github
+									</br>git add filename # to add to staging area
 									</br>git add *
-									</br>git commit filename -m "msg"
+									</br>git commit filename -m "msg" #to take screenshot the current structure from the staging area
 									</br>git commit -a -m "msg"
 									</code></pre>
 
@@ -56,8 +65,13 @@
 									<hr class="major" />
 
 									<h2>Other useful commands</h2>
-									<pre><code>git rm filename
-									</br>git rm --cached filename
+									<pre><code>git rm filename #remove from staging and working directory
+									</br>git rm --cached filename #removing only from staging area
+									</br>
+									</br>.gitignore # to ignore updating or indexing ; make this file and add filenames to be ignored.
+									</br> git branch branchname # to create branch
+									</br> git checkout branchname # to change directory to branch 
+									</br> Read about git merge									
 									</code></pre>
 
 								<!-- Work in News section-->
@@ -100,10 +114,8 @@
 										<li>
 											<span class="opener">Blog</span>
 											<ul>
-												<li><a href="./../MSD.html">Biological Physics</a></li>
-												<li><a href="#">Soft Matter Physics</a></li>
-												<li><a href="#">Polymer Physics</a></li>
-												<li><a href="#">Chromatin Organization</a></li>
+												<li><a href="MC-02-BuffonsNeedle.html">Buffons Needle Problem</a></li>
+												<li><a href="git_cheatsheet.html">Git Cheatsheet</a></li>
 											</ul>
 										</li>
 										<li><a href="./../index.html#contact">Contact</a></li>
