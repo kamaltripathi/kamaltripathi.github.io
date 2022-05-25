@@ -27,60 +27,59 @@
 
 <section>
 									<header class="main">
-										<h1>Cheatsheet for Git</h1>
+										<h1>Cheatsheet for Cluster</h1>
 									</header>
 
 									<span class="image main"><img src="#./../images/pic11.jpg" alt="" /></span>
 
-									<p>Git is a version control system which is useful to magage the projects.</p>
+									<p>This is a place where I keep all the commands I use while using the cluster facility at IMSc.</p>
 									<hr class="major" />
 
 									<h2>Initial setup </h2>
-									<pre><code>git config --global user.name username
-									</br>git config --global user.email useremail
-									</br>git config # to check the configuration
+									<pre><code>ssh username@clustername #in my case, clustername is nandadevi
+									</br>cd /path/to/directory #in my case it is /lustre/myusername; mind the first slash before the lustre
+									</br>
 									
 									</code></pre>
 									<hr class="major" />
 
 									<h2>Commands absolute necessary </h2>
-									<pre><code>cd path/to/directory/
-									</br>git init #to initiate a code from scratch
-									</br>git clone url # to clone code from github
-									</br>git add filename # to add to staging area
-									</br>git add * #add all files to staging area
-									</br>git commit filename -m "msg" #to take screenshot the current structure from the staging area
-									</br>git commit -m "msg"
-									</br>git push origin master
-									</br>git push origin main
-									</code></pre>
+									<pre><code>sbatch slurm.sh
 
+									</br>sinfo # to know the details of the cluster
+									</br>
+									</br>qstat -u username  #To get the details of running programs
+									</br>qstat -u username |grep -i "nandasq" # To get the details of programs of a specific user on a specific cluster
+									</br>qstat -u username |grep -i "nandasq" | wc -l  # to count the number of programs on a specific cluster
+									</br>qstat -u username |grep -i "nandasq" | awk '{sum+=$7} END {print sum}' # To sum the number of cpus used on a specific cluster
+									</code></pre>
+Note: Max allowed cpu no. to be used is 96.
 									<hr class="major" />
 
 									<h2>Commands frequently used</h2>
-									<pre><code>git status
-									</br>git remote add origin urlsomething.git
+									<pre><code>
+									</br>scancel jobid # To cancel a job
 
 									</code></pre>
 
 									<hr class="major" />
 
 									<h2>Other useful commands</h2>
-									<pre><code>git rm filename #remove from staging and working directory
-									</br>git rm --cached filename #removing only from staging area
+									<pre><code>
 									</br>
-									</br> git reset HEAD filename #to unstage file
-									</br> git reset HEAD . #to unstage all files
+									</br>
+									</br> 
+									</br> 
 									</br>
 
-									</br>.gitignore # to ignore updating or indexing ; make this file and add filenames to be ignored.
-									</br> git branch branchname # to create branch
-									</br> git checkout branchname # to change directory to branch 
-                                    </br> git config --get remote.origin.url # to get the github url from the local repository
+									</br>
+									</br>
+									</br>  
+                                    </br> 
 									</code></pre>
-									<p> To do: Read about git merge									
+									<p> 								
 									</p>
-                                 <p><a href="https://www.atlassian.com/git/glossary">https://www.atlassian.com/git/glossary</a> </p>
+                                 <p><a href="https://hpc.imsc.res.in/nandadevi-scheduler">https://hpc.imsc.res.in/nandadevi-scheduler</a> </p>
 								<!-- Work in News section-->
 								<section>
 									<header id="contact" class="major">
@@ -123,6 +122,7 @@
 											<ul>
 												<li><a href="MC-02-BuffonsNeedle.html">Buffons Needle Problem</a></li>
 												<li><a href="git_cheatsheet.html">Git Cheatsheet</a></li>
+												<li><a href="cluster_cheatsheet.html">Cluster Cheatsheet for IMSc</a></li>
 											</ul>
 										</li>
 										<li><a href="./../index.html#contact">Contact</a></li>
