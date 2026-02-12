@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buffon's Needle — Kamal Tripathi</title>
+<base href="../">
+<link rel="stylesheet" href="css/style.css">
+
+
+
+
+</head>
+<body>
+<article class="blog-post">
+
+<div class="page-wrapper">
+  <div id="sidebar-placeholder"></div>
+  <script src="js/script.js" defer></script>
+
+  <main class="content">
+    <h2>Buffon's Needle Simulation</h2>
+    <p>This Python code simulates Buffon's Needle problem to estimate the probability of a needle crossing lines on a grid.</p>
+
+
+<div class="code-container">
+  <button class="copy-btn">Copy</button>
+  
+    <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+L = 100   #x-direction
+d = 5     #distance between two grid lines
+n = 20    #number of grid lines
+l = 4     #length of needle  #(l,d)
+N = 1000   #number of throws
+Nhits = 0 #number of crossings of needle
+
+fig = plt.figure(figsize = (5,5))
+for i in range(N):
+    xa = np.random.uniform(0,L)           #a and b are two ends of needle
+    ya = np.random.uniform(0,(n-1)*d)
+    theta = np.random.uniform(0,2*np.pi)
+
+    xb = xa + l*np.cos(theta)
+    yb = ya + l*np.sin(theta)
+
+    if (xb &lt; 0 or xb &gt; L):               #this condition is to ensure the needle does not go outside of the grid
+        theta = theta + np.pi
+    xb = xa + l*np.cos(theta)
+    if (yb &lt; 0 or yb &gt; n*d):
+        theta = theta + np.pi
+    yb = ya + l*np.sin(theta)
+    if (np.floor(ya/d)-np.floor(yb/d))**2 ==1.0:
+        Nhits +=1
+    else:
+        pass
+
+    needlex = [xa,xb]
+    needley = [ya,yb]
+    plt.plot(needlex,needley,lw = 3)
+    
+for i in range(n):
+    Xg = d*i*np.ones(L)
+    plt.plot(Xg,color='k')
+    
+plt.xlim(0,L)
+plt.ylim(0,n*d)
+plt.savefig("Buffonsneedle.jpg")
+plt.show()
+
+print("P_hits from simulation is "+str(float(Nhits)/N) + " while from analytical calculation,\
+it is " + str((2*l)/(np.pi*d)) + '.')  
+</code></pre>
+
+</div>
+
+    <img src="images/buffons_needle.png" alt="Buffon's Needle Simulation" class="blog-image">
+    
+<p>P_hits from simulation is 0.504 while from analytical calculation,it is 0.5092958178940651.</p>
+
+      <p style="margin-top: 2em;"><a href="blog.html">← Back to Blog</a></p>
+      
+  </main>
+</div>
+
+
+
+
+
+<footer>
+  <p>© 2025 Kamal Tripathi</p>
+</footer>
+</article>
+
+
+<script src="js/copy-code.js" defer></script>
+
+
+
+</body>
+</html>
+

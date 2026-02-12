@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install LAMMPS — Kamal Tripathi</title>
+<base href="../">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- Sidebar -->
+  <div id="sidebar-placeholder"></div>
+  <script src="js/script.js" defer></script>
+
+  <!-- Main content -->
+  <main class="content">
+    <div class="blog-post">
+      <h2>Installing LAMMPS on Linux</h2>
+
+      <p>This guide shows how to install LAMMPS from source on a Linux system, including optional packages.</p>
+
+      <h3>Uninstall any existing version</h3>
+      
+      <div class="code-container">
+      <button class="copy-btn">Copy</button>
+      <pre><code>sudo apt-get remove --auto-remove lammps</code></pre>
+      </div>
+      
+      <h3>Download and extract the source</h3>
+      <pre><code>wget https://www.lammps.org/download.html
+tar -xzvf lammps*.tar.gz</code></pre>
+
+      <h3>Build LAMMPS</h3>
+      <pre><code>cd lammps/src
+make yes-MC
+make yes-KSPACE
+make yes-rigid
+make yes-misc
+make yes-basic
+make yes-molecule
+make yes-dipole
+make yes-EXTRA-PAIR
+</code></pre>
+
+      <p>Check which packages are included:</p>
+      <pre><code>make ps</code></pre>
+
+      <p>Build serial or MPI version:</p>
+      <pre><code>make serial
+make mpi</code></pre>
+
+      <h3>Install binaries</h3>
+      <p>After building, copy the executables to <code>/bin</code> so they are available globally:</p>
+      <pre><code>sudo cp lmp_serial /bin
+sudo cp lmp_mpi /bin</code></pre>
+
+      <h3>Adding additional packages</h3>
+      <p>If you want to include extra packages later:</p>
+      <pre><code>make yes-packagename
+make serial
+make mpi</code></pre>
+
+      <p>More detailed help is available at the official LAMMPS documentation:</p>
+      <p><a href="https://www.afs.enea.it/software/lammps/doc17/html/Section_start.html" target="_blank">LAMMPS Documentation</a></p>
+    </div>
+    
+          <p style="margin-top: 2em;"><a href="blog.html">← Back to Blog</a></p>
+          
+  </main>
+
+</div>
+
+<footer>
+  <p>© 2025 Kamal Tripathi</p>
+</footer>
+
+
+<script src="js/copy-code.js" defer></script>
+
+
+</body>
+</html>
+

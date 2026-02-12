@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cluster Access and File Transfer — Kamal Tripathi</title>
+<base href="../">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- Sidebar -->
+  <div id="sidebar-placeholder"></div>
+  <script src="js/script.js" defer></script>
+
+  <!-- Main content -->
+  <main class="content blog-post">
+    <h2>Cluster Access and File Transfer</h2>
+
+    <p>Instructions for logging into 3SR and Gricad clusters, transferring files, and running simulations.</p>
+
+    <hr>
+
+    <h3>Login and File Transfer — 3SR Cluster</h3>
+    <pre><code>login 3sr gate
+ssh ktripathi@gate.3sr-grenoble.fr
+ssh ktripathi@goliarda or ssh goliarda
+scp -r /home/kamalt/Desktop/file.py ktripathi@gate.3sr-grenoble.fr:/home/3S-LAB/ktripathi/
+# from gate.3sr, one can scp again
+scp -r sphere_equi.pdf goliarda:/home/3S-LAB/ktripathi/
+
+# Single command scp from laptop to goliarda
+scp -r -o ProxyCommand="ssh ktripathi@gate.3sr-grenoble.fr nc goliarda 22" /home/kamalt/Desktop/sphere_equi.pdf ktripathi@goliarda:/home/3S-LAB/ktripathi/
+
+pwd gives home/3S-LAB/ktripathi
+</code></pre>
+
+    <h3>Running Simulations on Goliarda</h3>
+    <pre><code>1. Create a gate in a terminal:
+ssh -L 2222:goliarda:22 ktripathi@gate.3sr-grenoble.fr
+
+2. Open another terminal:
+ssh -p 2222 ktripathi@localhost
+# Now you're connected
+
+3. Transfer files to cluster:
+scp -rP 2222 test-cluster ktripathi@localhost:/home/3S-LAB/ktripathi/
+
+4. Collect data:
+scp '-P 2222' file ktripathi@localhost:/home/3S-LAB/ktripathi
+scp -r -o ProxyCommand="ssh ktripathi@gate.3sr-grenoble.fr nc goliarda 22" ktripathi@goliarda:/home/3S-LAB/ktripathi/FoldertoGet ./media/kamalt/SystemHDD/Research/UGA/
+
+# From 3SR Laptop to my Laptop
+scp -r -o ProxyCommand="ssh ktripathi@gate.3sr-grenoble.fr nc lt-com056 22" ktripathi@lt-com056:/home/3S-LAB/ktripathi/Figure.pdf ./
+
+# From My Laptop to 3sr Laptop
+scp -r -o ProxyCommand="ssh ktripathi@gate.3sr-grenoble.fr nc lt-com056 22" filetosend ktripathi@lt-com056:/media/ktripathi/SG-2TB/Research/UGA/Collagen/VaryShoulderNew/Sim2/T0.15/phi0.16/
+</code></pre>
+
+    <h3>Goliarda Commands</h3>
+    <pre><code>oarstat -f                   # gives full info
+oarstat -h                    # for help
+oarnodes -s                   # state of all nodes
+oarstat -u ktripathi           # for my jobs
+oardel job_id
+</code></pre>
+
+    <h3>Gricad Login</h3>
+    <pre><code># Access the gate
+ssh tripathk@access-gricad.univ-grenoble-alpes.fr
+
+# Move to the cluster
+ssh tripathk@dahu
+pwd gives home/tripathk
+
+# Transfer files to cluster
+scp -r -o ProxyCommand="ssh tripathk@access-gricad.univ-grenoble-alpes.fr nc dahu 22" /home/3S-LAB/ktripathi/Research/UGA/Collagen/Sims/LargerSystem/9April2024.tar.gz tripathk@dahu:/home/tripathk/Simulations/
+
+scp -r -o ProxyCommand="ssh tripathk@access-gricad.univ-grenoble-alpes.fr nc dahu 22" tripathk@dahu:/home/tripathk/Simulations/clone ./
+scp -r -o ProxyCommand="ssh tripathk@access-gricad.univ-grenoble-alpes.fr nc dahu 22" tripathk@dahu:/home/tripathk/Simulations/12April2024/T0.1 /home/3S-LAB/ktripathi/Research/UGA/Collagen/Sims/LargerSystem/12April2024-dahu
+</code></pre>
+
+      <p style="margin-top: 2em;"><a href="blog.html">← Back to Blog</a></p>
+      
+  </main>
+</div>
+
+<footer>
+  <p>© 2025 Kamal Tripathi</p>
+</footer>
+
+
+<script src="js/copy-code.js" defer></script>
+
+</body>
+</html>
+

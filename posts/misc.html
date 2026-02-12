@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linux Snippets — Kamal Tripathi</title>
+
+<base href="../">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <div id="sidebar-placeholder"></div>
+  <script src="js/script.js" defer></script>
+
+  <main class="content">
+    <article>
+      <h2>Useful Linux Terminal Snippets</h2>
+      <p>A collection of commands for file organization, process management, and media processing.</p>
+
+      <hr>
+
+      <h3>Organize Files into Folders Automatically</h3>
+      <p>Create folders based on file names and move files into them (useful for <code>.data</code> files):</p>
+      <div class="code-container">
+        <button class="copy-btn">Copy</button>
+        <pre><code>find . -name "*.data" -exec sh -c 'mkdir "${1%.*}"; mv "$1" "${1%.*}"' _ {} \;</code></pre>
+      </div>
+
+      <h3>Find and delete files</h3>
+      <div class="code-container">
+        <button class="copy-btn">Copy</button>
+        <pre><code>find . -name "slurm-*" -exec rm -r {} \;</code></pre>
+      </div>
+
+      <h3>Run programs in background (nohup)</h3>
+      <p>Keep a process running after closing the terminal:</p>
+      <div class="code-container">
+        <button class="copy-btn">Copy</button>
+        <pre><code>nohup bash afterrun.sh > output_new.txt 2>&1 &</code></pre>
+      </div>
+
+      <h3>Create video from images (FFmpeg)</h3>
+      <div class="code-container">
+        <button class="copy-btn">Copy</button>
+        <pre><code>ffmpeg -framerate 1 -pattern_type glob -i '*.jpg' -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4</code></pre>
+      </div>
+
+      <h3>Splitting PDF files</h3>
+      <div class="code-container">
+        <button class="copy-btn">Copy</button>
+        <pre><code>qpdf --empty --pages infile.pdf 1-5 -- outfile.pdf</code></pre>
+      </div>
+
+      <h3>Stitching JPGs to make a GIF</h3>
+      <div class="code-container">
+        <button class="copy-btn">Copy</button>
+        <pre><code>convert -delay 10 -loop 4 snap.*.rgb movie.gif</code></pre>
+      </div>
+
+      <p style="margin-top: 2em;"><a href="blog.html">← Back to Blog</a></p>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <p>© 2025 Kamal Tripathi</p>
+</footer>
+
+<script src="js/copy-code.js" defer></script>
+
+</body>
+</html>

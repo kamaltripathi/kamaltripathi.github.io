@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installing LAMMPS on Linux — Kamal Tripathi</title>
+
+<!-- Set base to your site folder -->
+<base href="../">
+
+<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+
+<div class="page-wrapper">
+
+<!-- Sidebar placeholder -->
+<div id="sidebar-placeholder"></div>
+<script src="js/script.js" defer></script>
+
+<main class="content">
+  <article>
+    <h2>Installing LAMMPS on Linux</h2>
+    <small>Published on 2025-08-14</small>
+
+    <p>In this post, I will explain how to install LAMMPS, a widely used molecular dynamics simulator, on a Linux system. These instructions assume Ubuntu/Debian, but are adaptable to other distributions.</p>
+
+    <h3>1. Update your system</h3>
+    <pre><code>sudo apt update
+sudo apt upgrade</code></pre>
+
+    <h3>2. Install dependencies</h3>
+    <pre><code>sudo apt install build-essential cmake git fftw3-dev libjpeg-dev libpng-dev libblas-dev liblapack-dev</code></pre>
+
+    <h3>3. Clone the LAMMPS repository</h3>
+    <pre><code>git clone https://github.com/lammps/lammps.git
+cd lammps</code></pre>
+
+    <h3>4. Build LAMMPS</h3>
+    <pre><code>mkdir build
+cd build
+cmake ../cmake
+make -j4
+sudo make install</code></pre>
+
+    <h3>5. Verify installation</h3>
+    <pre><code>lmp -h</code></pre>
+
+    <p>If LAMMPS runs and shows the help message, the installation was successful!</p>
+
+    <h3>Notes:</h3>
+    <ul>
+      <li>You can also install via <code>conda</code> using <code>conda install -c conda-forge lammps</code>.</li>
+      <li>For GPU acceleration, additional packages like <code>CUDA</code> are required.</li>
+    </ul>
+
+      <p style="margin-top: 2em;"><a href="blog.html">← Back to Blog</a></p>
+      
+  </article>
+</main>
+
+</div>
+
+<footer>
+  <p>© 2025 Kamal Tripathi</p>
+</footer>
+
+
+<script src="js/copy-code.js" defer></script>
+
+</body>
+</html>
+

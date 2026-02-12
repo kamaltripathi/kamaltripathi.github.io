@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cluster Cheatsheet for IMSc — Kamal Tripathi</title>
+<base href="../">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- Sidebar -->
+  <div id="sidebar-placeholder"></div>
+  <script src="js/script.js" defer></script>
+
+  <!-- Main content -->
+  <main class="content blog-post">
+    <h2>Cluster Cheatsheet for IMSc</h2>
+
+    <p>This is a place where I keep all the commands I commonly use while working on the IMSc cluster “Nandadevi”. It includes commands for job submission, monitoring, and managing resources.</p>
+
+    <hr>
+
+    <h3>Initial Setup</h3>
+    <pre><code>ssh username@clustername   # e.g., clustername = nandadevi
+cd /path/to/directory       # e.g., /lustre/myusername
+</code></pre>
+
+    <h3>Essential Commands</h3>
+    <pre><code>sbatch slurm.sh        # submit a job
+sinfo                  # cluster information
+qstat -u username      # running jobs
+qstat -u username | grep -i "nandasq"   # jobs on specific cluster
+qstat -u username | grep -i "nandasq" | wc -l  # number of jobs
+qstat -u username | grep -i "nandasq" | awk '{sum+=$7} END {print sum}'  # total CPUs used
+</code></pre>
+    <p><em>Note:</em> Maximum allowed CPUs is 96.</p>
+
+    <h3>Frequently Used Commands</h3>
+    <pre><code>scancel jobid   # cancel a job
+</code></pre>
+
+    <h3>Other Useful Resources</h3>
+    <p>For more details, see the official scheduler page:</p>
+    <p><a href="https://hpc.imsc.res.in/nandadevi-scheduler" target="_blank">https://hpc.imsc.res.in/nandadevi-scheduler</a></p>
+
+      <p style="margin-top: 2em;"><a href="blog.html">← Back to Blog</a></p>
+      
+  </main>
+</div>
+
+<footer>
+  <p>© 2025 Kamal Tripathi</p>
+</footer>
+
+
+<script src="js/copy-code.js" defer></script>
+
+
+</body>
+</html>
+
