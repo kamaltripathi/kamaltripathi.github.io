@@ -11,59 +11,65 @@
 
 <div class="page-wrapper">
 
-  <!-- Sidebar -->
   <div id="sidebar-placeholder"></div>
   <script src="js/script.js" defer></script>
 
-  <!-- Main content -->
   <main class="content">
     <div class="blog-post">
     <h2>Git Cheatsheet</h2>
 
-    <p>Git is a version control system that helps manage projects efficiently. Here’s a quick reference for common Git commands.</p>
+    <p>A quick reference for common Git commands used to manage projects and website updates efficiently.</p>
 
     <hr>
 
-    <h3>Initial Setup</h3>
-    <pre><code>git config --global user.name "username"
-git config --global user.email "useremail@example.com"
-git config    # Check configuration
-</code></pre>
+    <h3>Initial Setup & Identity</h3>
+    <div class="code-container">
+      <button class="copy-btn">Copy</button>
+      <pre><code>git config --global user.name "Kamal Tripathi"
+git config --global user.email "your-email@example.com"
+git config --global credential.helper store  # Remembers your Token
+git config --list                            # Check configuration</code></pre>
+    </div>
 
-    <h3>Essential Commands</h3>
-    <pre><code>cd path/to/directory/
-git init           # Initialize a new repository
-git clone url      # Clone repository from GitHub
-git add filename   # Add file to staging area
-git add *          # Add all files to staging
-git commit -m "msg"  # Commit changes
-git push origin master
-git push origin main
-</code></pre>
+    <h3>Essential Workflow (Save & Upload)</h3>
+    <div class="code-container">
+      <button class="copy-btn">Copy</button>
+      <pre><code>git status                         # See modified files
+git add .                          # Stage all changes
+git commit -m "Your message here"  # Commit changes
+git push origin main               # Upload to GitHub (main branch)</code></pre>
+    </div>
 
-    <h3>Frequently Used Commands</h3>
-    <pre><code>git status
-git remote add origin url-to-repo.git
-</code></pre>
+    <h3>Branching & Maintenance</h3>
+    <div class="code-container">
+      <button class="copy-btn">Copy</button>
+      <pre><code>git branch                         # List local branches
+git branch -m master main          # Rename master to main
+git checkout -b branch-name        # Create and switch to new branch
+git fetch --prune                  # Remove old remote references</code></pre>
+    </div>
 
-    <h3>Other Useful Commands</h3>
-    <pre><code>git rm filename              # Remove from staging and working directory
-git rm --cached filename       # Remove only from staging
-git reset HEAD filename        # Unstage a file
-git reset HEAD .               # Unstage all files
-.gitignore                     # Ignore files/folders
-git branch branchname          # Create branch
-git checkout branchname        # Switch branch
-git config --get remote.origin.url  # Show remote URL
-</code></pre>
+    <h3>Remote & Repository Setup</h3>
+    <div class="code-container">
+      <button class="copy-btn">Copy</button>
+      <pre><code>git init                           # Initialize new local repo
+git clone https://url-to-repo.git  # Clone existing repo
+git remote add origin url-to-repo  # Link to GitHub
+git remote -v                      # Show remote URL</code></pre>
+    </div>
+
+    <h3>Reverting & Unstaging</h3>
+    <div class="code-container">
+      <button class="copy-btn">Copy</button>
+      <pre><code>git checkout filename              # Undo changes to a specific file
+git reset HEAD filename            # Unstage a file
+git reset --hard HEAD              # Wipe all uncommitted changes</code></pre>
+    </div>
 
     <p>For more details, see <a href="https://www.atlassian.com/git/glossary" target="_blank">Atlassian Git Glossary</a>.</p>
-
-    <!-- Optional image below code -->
-    <img src="images/git-cheatsheet.jpg" alt="Git Cheatsheet" class="blog-thumb">
     </div>
     
-          <p style="margin-top: 2em;"><a href="blog.html">← Back to Blog</a></p>
+    <p style="margin-top: 2em;"><a href="blog.html">← Back to Blog</a></p>
           
   </main>
 </div>
@@ -72,9 +78,7 @@ git config --get remote.origin.url  # Show remote URL
   <p>© 2025 Kamal Tripathi</p>
 </footer>
 
-
 <script src="js/copy-code.js" defer></script>
 
 </body>
 </html>
-
