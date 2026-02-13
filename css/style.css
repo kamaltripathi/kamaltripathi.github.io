@@ -94,6 +94,11 @@ aside.sidebar .profile-logo:hover {
   font-size: 1.8em;
 }
 
+aside.sidebar .profile-logo {
+  background: white;
+  border-radius: 4px;
+  padding: 2px;
+}
 
 /* Main content */
 main.content {
