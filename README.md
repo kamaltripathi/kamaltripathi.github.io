@@ -1,6 +1,6 @@
 ### Modified by Kamal Tripathi
 
-
+Updated the new files for the new webpage format, having a sidebar and posts
 
 
 Editorial by HTML5 UP
@@ -14,3 +14,4 @@ Credits:
 	Other:
 		jQuery (jquery.com)
 		Responsive Tools (github.com/ajlkn/responsive-tools)
+
