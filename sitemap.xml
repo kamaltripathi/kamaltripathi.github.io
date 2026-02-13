@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kamaltripathi.github.io/</loc>
+    <loc>https://kamaltripathi.github.io/index.html</loc>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://kamaltripathi.github.io/research.html</loc>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kamaltripathi.github.io/blog.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kamaltripathi.github.io/publications.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://kamaltripathi.github.io/posts/java.html</loc>
+    <loc>https://kamaltripathi.github.io/cv.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://kamaltripathi.github.io/posts/git_cheatsheet.html</loc>
     <priority>0.7</priority>
   </url>
-  </urlset>
+  <url>
+    <loc>https://kamaltripathi.github.io/posts/cluster_cheatsheet_oar.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kamaltripathi.github.io/posts/cluster_cheatsheet_slurm.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kamaltripathi.github.io/posts/install_lammps.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kamaltripathi.github.io/posts/install_lammps_on_cluster.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kamaltripathi.github.io/posts/BuffonsNeedle.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kamaltripathi.github.io/posts/misc.html</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>

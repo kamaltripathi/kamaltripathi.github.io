@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Installing LAMMPS on Linux Desktop",
       date: "2025-08-14",
       tags: ["LAMMPS", "Linux", "MD"],
-      file: "posts/blog1.html",
+      file: "posts/install_lammps.html",
       image: "posts/images/Lammps-logo.png"
 
     },
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Installing LAMMPS on Cluster",
       date: "2025-08-01",
       tags: ["Linux", "Installation", "cluster"],
-      file: "posts/java.html",
+      file: "posts/install_lammps_on_cluster.html",
       image: "posts/images/Lammps-logo.png"
     },
     
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Buffon's Needle",
       date: "2025-07-20",
       tags: ["Simulation", "Quantum Physics"],
-      file: "posts/MC-02-BuffonsNeedle.html",
+      file: "posts/BuffonsNeedle.html",
       image: "posts/images/buffons_needle.png"
     },
 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Git Cheatsheet",
       date: "2025-07-20",
       tags: ["Git", "Linux"],
-      file: "posts/git-cheatsheet.html",
+      file: "posts/git_cheatsheet.html",
       image: "posts/images/git-logo.png"
     },  
     
