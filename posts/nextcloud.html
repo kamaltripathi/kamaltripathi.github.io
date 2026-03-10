@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextcloud Desktop Client Tutorial on Ubuntu — Kamal Tripathi</title>
+    <base href="../">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <div id="sidebar-placeholder"></div>
+    <script src="js/script.js" defer></script>
+
+    <main class="content">
+        <h1>Nextcloud Desktop Client on Ubuntu - Step-by-Step Guide</h1>
+
+        <p>This tutorial summarizes the process of installing, cleaning, and using the Nextcloud desktop client on Ubuntu using the AppImage format.</p>
+
+        <h2>1. Understanding the Setup</h2>
+        <ul>
+            <li>Nextcloud AppImage = Desktop client, only syncs files.</li>
+            <li>Nextcloud Snap = Full server (PHP, MySQL, Redis). Not needed if you only want client.</li>
+            <li>Always run the AppImage <strong>without sudo</strong>.</li>
+        </ul>
+
+        <h2>2. Cleaning Old Installations</h2>
+        <p>If you had previous installations (AppImage or Snap), clean leftover processes and configs:</p>
+
+        <div class="code-container">
+            <pre><code># Kill any running AppImage
+pkill -f Nextcloud-4.0.6-x86_64.AppImage
+
+# Remove old config folders
+rm -rf ~/.config/Nextcloud
+rm -rf ~/.local/share/Nextcloud
+
+# If you previously installed Snap server
+sudo snap stop nextcloud
+sudo snap remove nextcloud
+sudo rm -rf /var/snap/nextcloud /snap/nextcloud
+
+# Fix permissions in home folder
+sudo chown -R $USER:$USER ~/</code></pre>
+        </div>
+
+        <div class="note">
+            <b>Note:</b> Always backup any important files before removing config folders.
+        </div>
+
+        <h2>3. Starting Fresh with the AppImage</h2>
+        <ol>
+            <li>Make the AppImage executable:
+                <div class="code-container">
+                    <pre><code>chmod +x ~/Applications/Nextcloud-4.0.6-x86_64.AppImage</code></pre>
+                </div>
+            </li>
+            <li>Launch it:
+                <div class="code-container">
+                    <pre><code>~/Applications/Nextcloud-4.0.6-x86_64.AppImage</code></pre>
+                </div>
+            </li>
+            <li>Connect to your university cloud URL via the browser login.</li>
+            <li>Choose a clean local folder for syncing (e.g., <code>~/Nextcloud</code>).</li>
+        </ol>
+
+        <h2>4. Handling “Folder Already in Use” Errors</h2>
+        <p>If the client says a folder is already in use:</p>
+        <ol>
+            <li>Quit the client: <code>pkill -f Nextcloud-4.0.6-x86_64.AppImage</code></li>
+            <li>Check the folder for leftover state files:
+                <div class="code-container">
+                    <pre><code>ls -la ~/Nextcloud
+# Look for .sync_config.db, .sync_*.log, .Nextcloud</code></pre>
+                </div>
+            </li>
+            <li>Backup and remove these files:
+                <div class="code-container">
+                    <pre><code>mkdir ~/Nextcloud_backup_old
+mv ~/Nextcloud/.sync_config.db ~/Nextcloud/.sync_*.log ~/Nextcloud/.Nextcloud ~/Nextcloud_backup_old/</code></pre>
+                </div>
+            </li>
+            <li>Restart the AppImage and select the original folder.</li>
+        </ol>
+
+        <h2>5. Verifying Sync</h2>
+        <ul>
+            <li>Tray icon: ✅ green check = synced, 🔄 arrows = syncing</li>
+            <li>Test sync by creating a file:
+                <div class="code-container">
+                    <pre><code>touch ~/Nextcloud/test_sync.txt</code></pre>
+                </div>
+            </li>
+            <li>Check that it appears in your university cloud web interface.</li>
+        </ol>
+
+        <h2>6. Optional Settings</h2>
+        <ul>
+            <li>Enable autostart: Tray icon → ⚙ Settings → Launch on system startup</li>
+            <li>Keep AppImage in a permanent location (e.g., <code>~/Applications</code>)</li>
+            <li>Merge old backup files if needed; the client will sync them automatically</li>
+        </ul>
+
+        <h2>7. Summary</h2>
+        <ul>
+            <li>Clean old configs and leftover Snap server before installing the client.</li>
+            <li>Use only the AppImage for desktop sync.</li>
+            <li>Backup old folders if migration errors appear.</li>
+            <li>Set folder permissions properly to avoid “already in use” errors.</li>
+            <li>Tray icon shows sync status and allows autostart configuration.</li>
+        </ul>
+
+        <p>Now your Nextcloud desktop client is fully integrated with Ubuntu Files, syncing automatically with your university cloud.</p>
+    </main>
+
+</div>
+
+<footer>
+    <p>© 2025 Kamal Tripathi</p>
+</footer>
+
+<script src="js/copy-code.js" defer></script>
+
+</body>
+</html>

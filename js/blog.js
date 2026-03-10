@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
      {
       title: "Buffon's Needle",
       date: "2025-07-20",
-      tags: ["Simulation", "Quantum Physics"],
+      tags: ["Simulation", "Quantum Physics", "physics"],
       file: "posts/BuffonsNeedle.html",
       image: "posts/images/buffons_needle.png"
     },
@@ -59,8 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: ["Linux", "commands"],
       file: "posts/misc.html",
       image: "posts/images/cli.jpg"
-    }
-    
+    },
+
+     {
+      title: "Nextcloud guide for Linux",
+      date: "2026-03-10",
+      tags: ["Linux", "commands", "nextcloud"],
+      file: "posts/nextcloud.html",
+      image: "posts/images/nextcloud_icon.webp"
+    }    
   ];
 
   async function getExcerpt(file) {
