@@ -110,6 +110,7 @@ main.content {
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 1.2em;
   overflow: auto;
+  text-align: justify;
 }
 
 /* Footer */
@@ -282,6 +283,7 @@ main.content img {
 /* Text side of the card */
 .card-text {
     flex: 2;            /* Takes up 2/3 of the width */
+    text-align: justify;
     line-height: 1.6;
     border-bottom: 1px solid #e0e0e0; /* The feeble grey line */
     padding-bottom: 25px;
