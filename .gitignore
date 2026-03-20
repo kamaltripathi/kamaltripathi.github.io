@@ -1,7 +1,28 @@
-#ignore the following files
+# --- OS & IDE Clutter ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
 
+# --- Simulation & Data (LAMMPS/Python) ---
+# Ignore large trajectory files and temporary logs
+*.lammpstrj
+*.bin
+log.lammps
+screen.log
+*.pyc
+__pycache__/
+venv/
+.ipynb_checkpoints/
 
+# --- Website Build & Node ---
+# If you ever use a CSS preprocessor or local packages
+node_modules/
+.sass-cache/
+npm-debug.log*
 
-#ignore the folders
-old-website/
-website/
+# --- Local Config & Secrets ---
+# Keep your private keys or local server configs off GitHub
+.env
+config.json
+secrets.txt
