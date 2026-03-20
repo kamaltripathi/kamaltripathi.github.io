@@ -4,6 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById('blog-search');
 
   const blogPosts = [
+     {
+      title: "Nextcloud guide for Linux",
+      date: "2026-03-10",
+      tags: ["Linux", "commands", "nextcloud"],
+      file: "posts/nextcloud.html",
+      image: "posts/images/nextcloud_icon.webp"
+    },
+    
     {
       title: "Installing LAMMPS on Linux Desktop",
       date: "2025-08-14",
@@ -59,15 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: ["Linux", "commands"],
       file: "posts/misc.html",
       image: "posts/images/cli.jpg"
-    },
-
-     {
-      title: "Nextcloud guide for Linux",
-      date: "2026-03-10",
-      tags: ["Linux", "commands", "nextcloud"],
-      file: "posts/nextcloud.html",
-      image: "posts/images/nextcloud_icon.webp"
-    }    
+    }
+    
   ];
 
   async function getExcerpt(file) {
